@@ -1,0 +1,115 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  .info-cards {
+    .info-card {
+      padding: 24px;
+      margin-bottom: 16px;
+      background: var(--surface-color);
+      border-radius: 8px;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      transition: all 0.3s ease;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+      }
+
+      .icon-box {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--accent-color), transparent 90%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          font-size: 24px;
+          color: var(--accent-color);
+        }
+      }
+
+      h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 14px;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin: 0;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .contact-form-wrap {
+    background: var(--surface-color);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      color: var(--default-color);
+      background-color: var(--surface-color);
+      font-size: 14px;
+      border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+      padding: 12px 16px;
+      border-radius: 4px;
+      min-height: 48px;
+
+      &:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 80%);
+      }
+
+      &::placeholder {
+        color: color-mix(in srgb, var(--default-color), transparent 70%);
+      }
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    select {
+      appearance: auto;
+    }
+
+    .btn-submit {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      border: none;
+      padding: 14px 40px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 16px;
+      min-height: 48px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: color-mix(in srgb, var(--accent-color), black 10%);
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    .contact-form-wrap {
+      padding: 24px;
+    }
+  }
+}

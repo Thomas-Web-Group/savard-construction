@@ -1,0 +1,177 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  position: relative;
+  padding: 96px 0 0;
+  overflow: hidden;
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15, 42, 68, 0.92) 0%, rgba(15, 42, 68, 0.75) 100%);
+    }
+  }
+
+  .container {
+    z-index: 2;
+  }
+
+  .badge-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: color-mix(in srgb, var(--contrast-color), transparent 85%);
+    color: var(--contrast-color);
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+
+    i {
+      font-size: 16px;
+    }
+  }
+
+  h1 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--contrast-color);
+
+    .accent {
+      color: var(--accent-color);
+    }
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--contrast-color), transparent 20%);
+    max-width: 580px;
+    margin-bottom: 32px;
+  }
+
+  .hero-actions {
+    margin-bottom: 80px;
+
+    .btn-main {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+
+      &:hover {
+        background: color-mix(in srgb, var(--accent-color), black 10%);
+      }
+    }
+
+    .btn-outline {
+      border: 2px solid var(--contrast-color);
+      color: var(--contrast-color);
+      padding: 12px 30px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      &:hover {
+        background: var(--contrast-color);
+        color: var(--heading-color);
+      }
+    }
+  }
+
+  .hero-counters {
+    background: var(--accent-color);
+    border-radius: 8px 8px 0 0;
+    padding: 32px;
+
+    .counter-item {
+      text-align: center;
+
+      h3 {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--contrast-color);
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 14px;
+        color: color-mix(in srgb, var(--contrast-color), transparent 20%);
+        margin: 4px 0 0;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 80px 0 0;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    .hero-actions {
+      margin-bottom: 48px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    padding: 64px 0 0;
+
+    h1 {
+      font-size: 32px;
+    }
+
+    .lead {
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      margin-bottom: 32px;
+
+      .btn-main,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    .hero-counters {
+      padding: 24px 16px;
+
+      .counter-item h3 {
+        font-size: 28px;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Process Section
+--------------------------------------------------------------*/
+.process {
+  .process-step {
+    text-align: center;
+    padding: 32px 24px;
+    position: relative;
+
+    .step-number {
+      font-size: 56px;
+      font-weight: 800;
+      color: color-mix(in srgb, var(--accent-color), transparent 85%);
+      line-height: 1;
+      margin-bottom: 16px;
+      font-family: var(--heading-font);
+    }
+
+    .step-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      position: relative;
+
+      i {
+        font-size: 32px;
+        color: var(--contrast-color);
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .process-step {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 110px;
+        right: -16px;
+        width: 32px;
+        height: 2px;
+        background: color-mix(in srgb, var(--accent-color), transparent 60%);
+      }
+    }
+
+    .col-lg-3:last-child .process-step::after {
+      display: none;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .process-step {
+      padding: 24px 16px;
+
+      .step-number {
+        font-size: 44px;
+      }
+
+      .step-icon {
+        width: 64px;
+        height: 64px;
+
+        i {
+          font-size: 24px;
+        }
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+    }
+  }
+}

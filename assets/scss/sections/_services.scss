@@ -1,0 +1,122 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services {
+  .services-image {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 400px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 42, 68, 0.95) 0%, rgba(15, 42, 68, 0.3) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+
+      h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.3;
+        margin-bottom: 16px;
+      }
+
+      .overlay-link {
+        color: var(--accent-color);
+        font-weight: 600;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: gap 0.3s ease;
+
+        &:hover {
+          gap: 12px;
+        }
+      }
+    }
+  }
+
+  .service-item {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    border-radius: 8px;
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    height: 100%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: var(--accent-color);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+      .service-icon {
+        background: var(--accent-color);
+
+        i {
+          color: var(--contrast-color);
+        }
+      }
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      i {
+        font-size: 24px;
+        color: var(--accent-color);
+        transition: all 0.3s ease;
+      }
+    }
+
+    .service-body {
+      h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin: 0;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .services-image {
+      min-height: 300px;
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .service-item {
+      flex-direction: column;
+      padding: 24px;
+    }
+  }
+}

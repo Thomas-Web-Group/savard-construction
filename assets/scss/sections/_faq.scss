@@ -1,0 +1,96 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Faq Section
+--------------------------------------------------------------*/
+.faq {
+  .faq-item {
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-radius: 8px;
+    padding: 24px 32px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      padding-right: 32px;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+
+    .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: 0.3s ease-in-out;
+      visibility: hidden;
+      opacity: 0;
+
+      p {
+        margin-bottom: 0;
+        overflow: hidden;
+        font-size: 16px;
+        line-height: 1.6;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+      }
+    }
+
+    .faq-toggle {
+      position: absolute;
+      right: 32px;
+      top: 28px;
+      font-size: 16px;
+      line-height: 0;
+      color: var(--default-color);
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  .faq-active {
+    border-color: var(--accent-color);
+
+    h3 {
+      color: var(--accent-color);
+    }
+
+    .faq-content {
+      grid-template-rows: 1fr;
+      visibility: visible;
+      opacity: 1;
+      padding-top: 16px;
+    }
+
+    .faq-toggle {
+      transform: rotate(90deg);
+      color: var(--accent-color);
+    }
+  }
+
+  @media (max-width: 575px) {
+    .faq-item {
+      padding: 16px 24px;
+
+      .faq-toggle {
+        right: 24px;
+        top: 20px;
+      }
+    }
+  }
+}

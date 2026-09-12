@@ -1,0 +1,223 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 8px;
+    }
+
+    li {
+      position: relative;
+    }
+
+    a,
+    a:focus {
+      color: var(--nav-color);
+      padding: 16px 14px;
+      font-size: 16px;
+      font-family: var(--nav-font);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: 0.3s;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        bottom: 8px;
+        height: 2px;
+        background: var(--accent-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+    }
+
+    a i,
+    a:focus i {
+      font-size: 12px;
+    }
+
+    li:hover>a,
+    .active,
+    .active:focus {
+      color: var(--nav-hover-color);
+
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+
+    .dropdown ul {
+      margin: 0;
+      padding: 12px 0;
+      background: var(--nav-dropdown-background-color);
+      display: block;
+      position: absolute;
+      visibility: hidden;
+      left: 0;
+      top: 120%;
+      opacity: 0;
+      transition: 0.3s;
+      border-radius: 8px;
+      z-index: 99;
+      box-shadow: 0 12px 30px color-mix(in srgb, var(--default-color) 12%, transparent);
+    }
+
+    .dropdown ul li {
+      min-width: 200px;
+    }
+
+    .dropdown ul a {
+      padding: 10px 20px;
+      font-size: 15px;
+      text-transform: none;
+      color: var(--nav-dropdown-color);
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .dropdown ul a:hover,
+    .dropdown ul li:hover>a {
+      color: var(--nav-dropdown-hover-color);
+    }
+
+    .dropdown:hover>ul {
+      opacity: 1;
+      top: 100%;
+      visibility: visible;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+
+    ul {
+      display: none;
+      list-style: none;
+      position: absolute;
+      inset: 70px 20px 20px 20px;
+      padding: 12px 0;
+      margin: 0;
+      border-radius: 12px;
+      background-color: var(--nav-mobile-background-color);
+      overflow-y: auto;
+      transition: 0.3s;
+      z-index: 9998;
+      box-shadow: 0 18px 40px color-mix(in srgb, var(--default-color) 12%, transparent);
+    }
+
+    a,
+    a:focus {
+      color: var(--nav-dropdown-color);
+      padding: 12px 20px;
+      font-family: var(--nav-font);
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      white-space: nowrap;
+      transition: 0.3s;
+
+      i {
+        font-size: 12px;
+        line-height: 0;
+        margin-left: 5px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: 0.3s;
+        background-color: color-mix(in srgb, var(--accent-color) 12%, transparent);
+      }
+    }
+
+    a:hover,
+    .active,
+    .active:focus {
+      color: var(--nav-dropdown-hover-color);
+    }
+
+    .active i,
+    .active:focus i {
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      transform: rotate(180deg);
+    }
+
+    .dropdown {
+      ul {
+        position: static;
+        display: none;
+        z-index: 99;
+        padding: 10px 0;
+        margin: 10px 20px;
+        background-color: var(--nav-dropdown-background-color);
+        border: 1px solid color-mix(in srgb, var(--default-color) 10%, transparent);
+        box-shadow: none;
+        transition: all 0.5s ease-in-out;
+      }
+
+      >.dropdown-active {
+        display: block;
+        background-color: color-mix(in srgb, var(--accent-color) 6%, transparent);
+      }
+    }
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+
+    .mobile-nav-toggle {
+      color: var(--contrast-color);
+      position: absolute;
+      font-size: 32px;
+      top: 15px;
+      right: 15px;
+      margin-right: 0;
+      z-index: 9999;
+    }
+
+    .navmenu {
+      position: fixed;
+      overflow: hidden;
+      inset: 0;
+      background: color-mix(in srgb, var(--default-color) 75%, transparent);
+      transition: 0.3s;
+
+      >ul {
+        display: block;
+      }
+    }
+  }
+}

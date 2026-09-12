@@ -1,0 +1,132 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  --background-color: rgba(255, 255, 255, 0.9);
+  --default-color: #30445a;
+  --heading-color: #0b3d70;
+  background: color-mix(in srgb, var(--background-color) 92%, transparent);
+  padding: 16px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color) 10%, transparent);
+  transition: all 0.3s ease;
+  z-index: 997;
+
+  .logo {
+    gap: 12px;
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+      color: var(--accent-color);
+      font-size: 20px;
+    }
+
+    .site-logo {
+      width: 340px;
+      height: 96px;
+      object-fit: contain;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0;
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+  }
+
+  .header-actions {
+    margin: 0 16px;
+
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--default-color);
+
+      i {
+        font-size: 18px;
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  .btn-quote {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: color-mix(in srgb, var(--accent-color) 90%, black);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .logo {
+      order: 1;
+      margin-right: auto;
+    }
+
+    .btn-quote {
+      order: 2;
+      margin-right: 12px;
+      padding: 10px 20px;
+    }
+
+    .header-actions {
+      display: none !important;
+    }
+
+    .navmenu {
+      order: 3;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .logo {
+      gap: 8px;
+
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .scrolled & {
+    background: color-mix(in srgb, var(--background-color) 98%, transparent);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--default-color) 12%, transparent);
+  }
+}
+
+/* Global Header on Scroll
+------------------------------*/
+.scrolled .header {
+  --background-color: rgba(255, 255, 255, 0.98);
+  --default-color: #30445a;
+}
+
+@media (max-width: 767px) {
+  .header .logo .site-logo {
+    width: 170px;
+    height: 48px;
+  }
+}
